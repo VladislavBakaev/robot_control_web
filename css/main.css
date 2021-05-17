@@ -1,0 +1,22 @@
+#robot-menu{
+    /* background-color: rgb(10, 10, 73); */
+    /* color:rgb(250, 250, 250); */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+#wifi-block{
+    /* background-color: blueviolet; */
+    /* color: rgb(255, 255, 255); */
+    height: 100%;
+    width: 40%;
+}
+.container{
+    display: flex;
+    height: 600px;
+    font-weight: 900;
+}
+body{
+    font-family: 'Oswald', sans-serif;
+}

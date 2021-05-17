@@ -1,0 +1,79 @@
+<html>
+    <header>
+        <link rel="stylesheet" type="text/css" href = "css/main.css">
+        <link rel="stylesheet" type="text/css" href = "css/load.css">
+        <link rel="stylesheet" type="text/css" href = "css/custom_menu.css">
+        <link rel="stylesheet" type="text/css" href = "css/popup_window.css">
+        <link rel="stylesheet" type="text/css" href = "css/wifi_list.css">
+        <link rel="stylesheet" type="text/css" href = "css/robot_state.css">
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/wifi_control.js"></script>
+        <script src="js/robot_control.js"></script>
+    </header>
+
+    <body>
+        <div class="container">
+            <div id="robot-menu">
+                <h2>Robot state</h2>
+                <h3>Service Status</h3>
+                <div id='service-state-box'>
+                    <div>
+                        <div id="slam_state"></div>
+                        <div>
+                            <input type="button" onclick="start_stop_service('slam.service','start')" value = "Start">
+                            <input type="button" onclick="start_stop_service('slam.service','stop')" value = "Stop">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="brige_state"></div>
+                        <div>
+                            <input type="button" onclick="start_stop_service('rns_brige.service','start')" value = "Start">
+                            <input type="button" onclick="start_stop_service('rns_brige.service','stop')" value = "Stop">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="mover_state"></div>
+                        <div>
+                            <input type="button" onclick="start_stop_service('mover.service','start')" value = "Start">
+                            <input type="button" onclick="start_stop_service('mover.service','stop')" value = "Stop">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="base_state"></div>
+                        <div>
+                            <input type="button" onclick="start_stop_service('base_process.service','start')" value = "Start">
+                            <input type="button" onclick="start_stop_service('base_process.service','stop')" value = "Stop">
+                        </div>
+                    </div>
+                </div>
+                <h4>Task parameters</h4>
+                <ul id="slam-param"></ul>
+
+                <h3>Robot internal state</h3>
+                <ul id='robot-internal-state'></ul>
+
+            </div>
+            
+            <div id="wifi-block">
+                <h2>Wi-Fi list</h2>
+                <ul id = "wifi-list">
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="popup-window">
+            <p class="close">x</p>	
+            <p>Password</p>
+            <input id="in-password" type="password"/>
+            <input id="password-but" type="button" onclick="change_wifi()" value = "Send">
+        </div>
+        <div class="backpopup"></div>
+        <ul class='custom-menu'>
+            <li>Forget Wi-Fi</li>
+        </ul>
+    </body>
+</html>

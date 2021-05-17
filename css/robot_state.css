@@ -1,0 +1,27 @@
+#service-state-box {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgb(12, 5, 54); */
+}
+
+#service-state-box li span{
+    font-size: 14px;
+    color: gray;
+}
+
+#service-state-box div{
+    margin: 5px;
+}
+
+#service-state-box input{
+    width: 40%;
+}
+
+#slam-param span{
+    color: gray;
+}
+
+#robot-internal-state span{
+    color: gray;
+}
