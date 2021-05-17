@@ -28,7 +28,7 @@ $(document).ready(function(){
     list = $('#wifi-list')
     list.click(click_wifi)
 
-    chatSocket = new WebSocket('ws://' + window.location.hostname + ':5000/wifi/list');
+    chatSocket = new WebSocket('ws://' + window.location.hostname + ':5000/ws/wifi/list');
     chatSocket.onmessage = wifi_message_load
 
     $('#password-but').attr('disabled', 'disabled');
@@ -122,7 +122,7 @@ function change_wifi(){
 function send_change_wifi_req(name, password){
     load_wifi = target_wifi[0]
     $.ajax({
-        url: '/api/wifi/connect',
+        url: '/wifi/connect',
         dataType: 'text',
         cache: false,
         contentType: 'application/json',
@@ -140,7 +140,7 @@ function send_change_wifi_req(name, password){
 }
 function forget_wifi_net(name){
     $.ajax({
-        url: '/api/wifi/forget',
+        url: '/wifi/forget',
         dataType: 'text',
         cache: false,
         contentType: 'application/json',

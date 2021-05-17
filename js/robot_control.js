@@ -22,8 +22,8 @@ $(document).ready(function(){
     slam_param = $('#slam-param')
     internal_state = $('#robot-internal-state')
 
-    internal_state_ws = new WebSocket('ws://' + window.location.hostname + ':5000/robot/internal');
-    slam_param_ws = new WebSocket('ws://' + window.location.hostname + ':5000/robot/slam/param');
+    internal_state_ws = new WebSocket('ws://' + window.location.hostname + ':5001/ws/robot/internal');
+    slam_param_ws = new WebSocket('ws://' + window.location.hostname + ':5001/ws/robot/slam/param');
 
     internal_state_ws.onmessage = update_internal_param
     slam_param_ws.onmessage = update_slam_param
