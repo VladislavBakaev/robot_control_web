@@ -10,6 +10,8 @@ var internal_state;
 var internal_state_ws;
 var slam_param_ws;
 
+var service_name_list = ["SLAM.service", "rnsbridge.service", "rnsmove.service", "ros-arduino-client.service"]
+
 
 $(document).ready(function(){
     slam_state = $('#slam_state')
@@ -17,7 +19,8 @@ $(document).ready(function(){
     mover_state = $('#mover_state')
     base_state = $('#base_state')
 
-    state_div_list = [base_state, mover_state, brige_state, slam_state]
+    state_div_list = [slam_state, brige_state, mover_state, base_state]
+
 
     slam_param = $('#slam-param')
     internal_state = $('#robot-internal-state')
@@ -38,10 +41,14 @@ function get_service_list(){
 function update_service_list(data){
     // service_list.html('<h3>name, load_state, active_state, substate</h3>')
     for(i in state_div_list){
-        state_div_list[i].html(`<li>Service name: <span>${data[i]['name']}</span></li>\
-        <li>Load state: <span>${data[i]['load_state']}</span></li>\
-        <li>Active state: <span>${data[i]['active_state']}</span></li>\
-        <li>Substate: <span>${data[i]['substate']}</span></li>`)
+        for(j in data){
+            if (data[j]['name'] == service_name_list[i]){
+                state_div_list[i].html(`<li>Service name: <span>${data[j]['name']}</span></li>\
+                <li>Load state: <span>${data[j]['load_state']}</span></li>\
+                <li>Active state: <span>${data[j]['active_state']}</span></li>\
+                <li>Substate: <span>${data[j]['substate']}</span></li>`)
+            }
+        }
     }
 }
 
